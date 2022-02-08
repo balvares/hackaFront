@@ -15,18 +15,16 @@ class _LoginPageState extends State<LoginPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _secretController = TextEditingController();
 
-  Widget _buildTextInput(String label) {
+  Widget _buildTextInput(String label, TextEditingController controller) {
 
     return CustomTextInput(
-      onChanged: (String value) {}, 
-      controller: _emailController, 
+      controller: controller, 
       color: Colors.white,
       width: 300,
-      inputType: null, 
       label: label,
       labelColor: Colors.black
-      // labelColor: Colors.grey[400]!,
     );
   }
 
@@ -49,8 +47,8 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 60.0),
-          _buildTextInput("E-mail"),
-          _buildTextInput("Senha"),
+          _buildTextInput("E-mail", _emailController),
+          _buildTextInput("Senha", _secretController),
           _buildButton("Entrar"),
         ],
       ),

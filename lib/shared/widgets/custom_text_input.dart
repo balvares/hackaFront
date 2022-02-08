@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 class CustomTextInput extends StatelessWidget {
 
-  final Color? color;
+  final Color color;
   final String? label;
   final double? width;
   final bool enabled;
@@ -12,17 +12,13 @@ class CustomTextInput extends StatelessWidget {
   final Color labelColor;
   final String placeholder;
   final TextAlign textAlign;
-  final TextInputType? inputType;
-  final Function(String value) onChanged;
   final TextEditingController? controller;
 
   const CustomTextInput({Key? key, 
     this.width,
-    required this.color,
+    this.color = Colors.white,
     required this.label,
     this.enabled = true,
-    required this.inputType,
-    required this.onChanged,
     this.maxLength = 50,
     this.textAlign = TextAlign.start,
     this.labelColor = Colors.black,
@@ -60,7 +56,6 @@ class CustomTextInput extends StatelessWidget {
       obscureText: obscureText,
       cursorColor: Colors.black,
       textAlign: textAlign,
-      keyboardType: inputType,
       inputFormatters: [
         LengthLimitingTextInputFormatter(maxLength),
       ],
@@ -72,7 +67,6 @@ class CustomTextInput extends StatelessWidget {
         enabledBorder: InputBorder.none,
         disabledBorder: InputBorder.none,
       ),
-      onChanged: onChanged,
     );
 
     return Container(

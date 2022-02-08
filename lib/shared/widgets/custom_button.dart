@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   const CustomButton({
     this.color,
-    this.width = 300,
+    this.width = 200,
     this.fontSize = 12,
     this.elevation = 0.0,
     required this.onPressed,
